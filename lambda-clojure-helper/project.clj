@@ -4,7 +4,8 @@
   :license {:name "Affero General Public License version 3 or lator"
             :url "https://www.gnu.org/licenses/agpl-3.0.html"}
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/data.json "0.2.6"]]
+                 [org.clojure/data.json "0.2.6"]
+                 [leinjacker "0.4.2" :exclusions [org.clojure/clojure]]]
 
   :repositories [["clojars" {:url "https://clojars.org/repo"
                              :creds :gpg}]]
@@ -14,4 +15,5 @@
 
   :main ^:skip-aot aws-lambda-clojure.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :eval-in-leiningen true)
