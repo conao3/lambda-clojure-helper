@@ -64,10 +64,19 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defn shell-command [& args]
+  (println (clojure.string/join " " (cons "$" args)))
+  (let [result (apply sh args)]
+    {:exit (:exit result)
+     :out  (clojure.string/join "" [(:out result) (:err result)])}))
+
 (defn create-cache []
   (let [config (edn/read-string (slurp "resources/config.edn"))]
     (spit "resources/.cache.edn"
-          (pr-str config))))
+          (pr-str config))
+    (println (:out (sh "aws" "apigateway" "get-rest-apis")))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn action-echo [options]
   (println (:out (sh "echo" "Lambda-clojure-helper"))))
