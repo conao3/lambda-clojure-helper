@@ -1,6 +1,7 @@
 (ns lambda-clojure-helper.core
   (:require [clojure.edn :as edn]
             [clojure.string :as string]
+            [clojure.data.json :as json]
             [clojure.tools.cli :refer [parse-opts]])
   (:use [clojure.string :only (join split)]
         [clojure.java.shell :only [sh]])
@@ -66,9 +67,13 @@
 
 (defn shell-command [& args]
   (println (clojure.string/join " " (cons "$" args)))
-  (let [result (apply sh args)]
-    {:exit (:exit result)
-     :out  (clojure.string/join "" [(:out result) (:err result)])}))
+  (apply sh args))
+
+(defn shell-command-json [& args]
+  (let [result (apply shell-command args)]
+    (if (== (:exit result) 0)
+      (json/read-str (:out result))
+      (exit (:exit result) (:err result)))))
 
 (defn create-cache []
   (let [config (edn/read-string (slurp "resources/config.edn"))]
