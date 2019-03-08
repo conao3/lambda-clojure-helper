@@ -64,6 +64,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(defn create-cache [dryp]
+  (let [config (edn/read-string (slurp "resources/config.edn"))]
+    ))
+
 (defn action-echo [options]
   (println (:out (sh "echo" "Lambda-clojure-helper"))))
 

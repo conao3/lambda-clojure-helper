@@ -14,7 +14,14 @@
                          ["snapshots" :clojars]]
   :signing {:gpg-key "81903F6B7B02852F"}
 
-  :main ^:skip-aot aws-lambda-clojure.core
+  :main ^:skip-aot lambda-clojure-helper.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
   :eval-in-leiningen true)
+
+
+
+
+
+
+
