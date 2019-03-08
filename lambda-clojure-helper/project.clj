@@ -4,6 +4,7 @@
   :license {:name "Affero General Public License version 3 or lator"
             :url "https://www.gnu.org/licenses/agpl-3.0.html"}
   :dependencies [[org.clojure/clojure "1.9.0"]
+                 [org.clojure/tools.cli "0.4.1"]
                  [org.clojure/data.json "0.2.6"]
                  [leinjacker "0.4.2" :exclusions [org.clojure/clojure]]]
 
