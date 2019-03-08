@@ -64,13 +64,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn action-echo [msg]
+(defn action-echo [options]
   (println (:out (sh "echo" "Lambda-clojure-helper"))))
 
 (defn action-dryrun [options]
   nil)
 
-(defn action-deploy [option]
+(defn action-deploy [options]
   nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
