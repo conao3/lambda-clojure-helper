@@ -7,4 +7,4 @@
   "aws"
   [project & args]
   (leiningen.core.main/info "Hello AWS!")
-  (helper/-main args))
+  (apply helper/-main args))

@@ -23,6 +23,7 @@
         "Usage: lein aws <actions> [options]"
         ""
         "Actions:"
+        "  echo        system command execution test"
         "  deploy      deploy functions"
         ""
         "Options:"
@@ -50,7 +51,7 @@
 
       ;; custom validation on arguments
       (and (= 1 (count arguments))
-           (#{"deploy"} (first arguments)))
+           (#{"echo" "deploy"} (first arguments)))
       {:action (first arguments) :options options}
 
       :else ; failed custom validation => exit with usage summary
@@ -62,8 +63,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn echo [msg]
-  (:out (sh "echo" msg)))
+(defn action-echo [msg]
+  (println (:out (sh "echo" "Lambda-clojure-helper"))))
 
 (defn action-deploy [option]
   nil)
@@ -77,4 +78,5 @@
     (if exit-message
       (exit (if ok? 0 1) exit-message)
       (case action
+        "echo"   (action-echo options)
         "deploy" (action-deploy options)))))
