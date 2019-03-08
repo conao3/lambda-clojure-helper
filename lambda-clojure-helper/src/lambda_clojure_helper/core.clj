@@ -24,6 +24,7 @@
         ""
         "Actions:"
         "  echo        system command execution test"
+        "  dryrun      dryrun of deploy"
         "  deploy      deploy functions"
         ""
         "Options:"
@@ -51,7 +52,7 @@
 
       ;; custom validation on arguments
       (and (= 1 (count arguments))
-           (#{"echo" "deploy"} (first arguments)))
+           (#{"echo" "dryrun" "deploy"} (first arguments)))
       {:action (first arguments) :options options}
 
       :else ; failed custom validation => exit with usage summary
@@ -66,6 +67,9 @@
 (defn action-echo [msg]
   (println (:out (sh "echo" "Lambda-clojure-helper"))))
 
+(defn action-dryrun [options]
+  nil)
+
 (defn action-deploy [option]
   nil)
 
@@ -79,4 +83,5 @@
       (exit (if ok? 0 1) exit-message)
       (case action
         "echo"   (action-echo options)
+        "dryrun" (action-dryrun options)
         "deploy" (action-deploy options)))))
