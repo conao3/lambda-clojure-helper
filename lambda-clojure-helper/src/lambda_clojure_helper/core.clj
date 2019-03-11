@@ -72,8 +72,13 @@
 (defn shell-command-json [& args]
   (let [result (apply shell-command args)]
     (if (== (:exit result) 0)
-      (json/read-str (:out result))
+      (json/read-str (:out result) :key-fn keyword)
       (exit (:exit result) (:err result)))))
+
+(defn aws-shell-command [& args]
+  (apply shell-command-json (cons "aws" args)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn create-cache []
   (let [config (edn/read-string (slurp "resources/config.edn"))]
