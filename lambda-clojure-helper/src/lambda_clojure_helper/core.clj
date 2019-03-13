@@ -4,7 +4,8 @@
             [clojure.data.json :as json]
             [clojure.tools.cli :refer [parse-opts]])
   (:use [clojure.string :only (join split)]
-        [clojure.java.shell :only [sh]])
+        [clojure.java.shell :only [sh]]
+        [clansi.core :only [style]])
   (:gen-class))
 
 (def user-config
@@ -101,7 +102,7 @@
 
 (defn action-dryrun [{:keys [verbose], :as options}]
   (when verbose
-    (print "user-config: ")
+    (print (style "user-config: " :green))
     (action-show-config options))
   (println options))
 

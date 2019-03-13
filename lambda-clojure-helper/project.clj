@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/tools.cli "0.4.1"]
                  [org.clojure/data.json "0.2.6"]
+                 [myguidingstar/clansi "1.3.0"]
                  [leinjacker "0.4.2" :exclusions [org.clojure/clojure]]]
 
   :repositories [["clojars" {:url "https://clojars.org/repo"
