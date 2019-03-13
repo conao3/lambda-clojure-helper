@@ -27,10 +27,10 @@
         "Usage: lein aws <actions> [options]"
         ""
         "Actions:"
-        "  echo        system command execution test"
-        "  show-config show user-config"
-        "  dryrun      dryrun of deploy"
-        "  deploy      deploy functions"
+        "  echo            system command execution test"
+        "  show-config     show user-config"
+        "  dryrun          dryrun of deploy"
+        "  deploy          deploy functions"
         ""
         "Options:"
         options-summary
@@ -113,7 +113,7 @@
     (if exit-message
       (exit (if ok? 0 1) exit-message)
       (case action
-        "echo"   (action-echo options)
+        "echo"        (action-echo options)
         "show-config" (action-show-config options)
-        "dryrun" (action-dryrun options)
-        "deploy" (action-deploy options)))))
+        "dryrun"      (action-dryrun options)
+        "deploy"      (action-deploy options)))))
