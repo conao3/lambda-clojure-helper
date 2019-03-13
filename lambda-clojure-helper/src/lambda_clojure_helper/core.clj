@@ -19,7 +19,7 @@
    ;;  :update-fn inc] ; Prior to 0.4.1, you would have to use:
    ;; ;; :assoc-fn (fn [m k _] (update-in m [k] inc))
    ;; A boolean option defaulting to nil
-   ["-v" "--verbose" "Show debug messages"]
+   ["-v" "--verbose" "Show debug messages" :default false]
    ["-h" "--help" "Show this help"]])
 
 (defn usage [options-summary]
@@ -100,7 +100,7 @@
   (println user-config))
 
 (defn action-dryrun [{:keys [verbose], :as options}]
-  (create-cache))
+  (println options))
 
 (defn action-deploy [options]
   (create-cache))
