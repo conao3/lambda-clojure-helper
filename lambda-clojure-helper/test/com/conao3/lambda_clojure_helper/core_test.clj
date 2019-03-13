@@ -1,4 +1,4 @@
-(ns lambda-clojure-helper.core-test
+(ns com.conao3.lambda-clojure-helper.core-test
   (:require [clojure.test :refer :all]
             [lambda-clojure-helper.core :refer :all]))
 

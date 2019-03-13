@@ -1,4 +1,4 @@
-(ns lambda-clojure-helper.core
+(ns com.conao3.lambda-clojure-helper.core
   (:require [clojure.edn :as edn]
             [clojure.string :as string]
             [clojure.data.json :as json]
