@@ -7,7 +7,7 @@
         [clojure.java.shell :only [sh]])
   (:gen-class))
 
-(def gateway-functions
+(def user-config
   (edn/read-string (slurp "resources/lambda-clojure-helper-config.edn")))
 
 (def cli-options
@@ -28,6 +28,7 @@
         ""
         "Actions:"
         "  echo        system command execution test"
+        "  show-config show user-config"
         "  dryrun      dryrun of deploy"
         "  deploy      deploy functions"
         ""
@@ -56,7 +57,7 @@
 
       ;; custom validation on arguments
       (and (= 1 (count arguments))
-           (#{"echo" "dryrun" "deploy"} (first arguments)))
+           (#{"echo" "show-config" "dryrun" "deploy"} (first arguments)))
       {:action (first arguments) :options options}
 
       :else ; failed custom validation => exit with usage summary
@@ -94,6 +95,9 @@
 (defn action-echo [options]
   (println (:out (sh "echo" "Lambda-clojure-helper"))))
 
+(defn action-show-config [options]
+  (println user-config))
+
 (defn action-dryrun [options]
   (create-cache))
 
@@ -110,5 +114,6 @@
       (exit (if ok? 0 1) exit-message)
       (case action
         "echo"   (action-echo options)
+        "show-config" (action-show-config options)
         "dryrun" (action-dryrun options)
         "deploy" (action-deploy options)))))
