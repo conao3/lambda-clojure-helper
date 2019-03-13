@@ -111,6 +111,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; this project also run `lein run <subcommnad>'
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
