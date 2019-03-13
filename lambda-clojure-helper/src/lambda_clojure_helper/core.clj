@@ -8,7 +8,7 @@
   (:gen-class))
 
 (def gateway-functions
-  (edn/read-string (slurp "resources/config.edn")))
+  (edn/read-string (slurp "resources/lambda-clojure-helper-config.edn")))
 
 (def cli-options
   ;; An option with a required argument
