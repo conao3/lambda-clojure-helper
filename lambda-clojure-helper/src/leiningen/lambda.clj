@@ -8,9 +8,3 @@
   [project & args]
   ;; (leiningen.core.main/info "Hello AWS!")
   (apply helper/-main args))
-
-
-
-
-
-
