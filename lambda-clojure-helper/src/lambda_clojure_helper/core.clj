@@ -7,6 +7,9 @@
         [clojure.java.shell :only [sh]])
   (:gen-class))
 
+(def gateway-functions
+  (edn/read-string (slurp "resources/config.edn")))
+
 (def cli-options
   ;; An option with a required argument
   [
@@ -62,11 +65,6 @@
 (defn exit [status msg]
   (println msg)
   (System/exit status))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(def gateway-functions
-  (edn/read-string (slurp "resources/config.edn")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
