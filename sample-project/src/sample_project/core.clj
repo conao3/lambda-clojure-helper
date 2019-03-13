@@ -1,4 +1,5 @@
-(ns sample-project.core)
+(ns sample-project.core
+  (:require [clojure.data.json :as json]))
 
 (defn hello-lambda [event]
   {'statusCode 200
