@@ -7,6 +7,9 @@
                  [org.clojure/tools.cli "0.4.1"]
                  [org.clojure/data.json "0.2.6"]
                  [myguidingstar/clansi "1.3.0"]
+                 [com.cognitect.aws/api       "0.8.273"]
+                 [com.cognitect.aws/endpoints "1.1.11.507"]
+                 [com.cognitect.aws/s3        "697.2.391.0"]
                  [leinjacker "0.4.2" :exclusions [org.clojure/clojure]]]
 
   :repositories [["clojars" {:url "https://clojars.org/repo"
