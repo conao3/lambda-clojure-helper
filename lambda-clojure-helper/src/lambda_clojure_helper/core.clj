@@ -65,6 +65,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(def gateway-functions nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defn shell-command [& args]
   (println (clojure.string/join " " (cons "$" args)))
   (apply sh args))
