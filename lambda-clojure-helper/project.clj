@@ -1,4 +1,4 @@
-(defproject com.conao3/lambda-clojure-helper "0.0.1"
+(defproject com.conao3/lambda-clojure-helper "0.0.2"
   :description "A helper to work Clojure on AWS Lambda"
   :url "http://github.com/conao3/lambda-clojure-helper"
   :license {:name "Affero General Public License version 3 or lator"
@@ -18,10 +18,3 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
   :eval-in-leiningen true)
-
-
-
-
-
-
-
