@@ -11,5 +11,5 @@ pom.xml.asc
 .hgignore
 .hg/
 
-config.edn
-.cache.edn
+lambda-clojure-helper-config.edn
+.lambda-clojure-helper-cache.edn
