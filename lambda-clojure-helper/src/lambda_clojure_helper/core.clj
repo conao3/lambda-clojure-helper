@@ -100,6 +100,9 @@
   (println user-config))
 
 (defn action-dryrun [{:keys [verbose], :as options}]
+  (when verbose
+    (print "user-config: ")
+    (action-show-config options))
   (println options))
 
 (defn action-deploy [options]
