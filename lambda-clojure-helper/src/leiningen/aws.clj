@@ -4,7 +4,7 @@
             [lambda-clojure-helper.core :as helper]))
 
 (defn aws
-  "aws"
+  "Deploy Clojure functions to AWS lambda."
   [project & args]
   (leiningen.core.main/info "Hello AWS!")
   (apply helper/-main args))
