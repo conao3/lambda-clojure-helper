@@ -3,6 +3,8 @@
   (:gen-class))
 
 (defn hello-lambda [event]
+  {:lambda-export "hello-lambda"
+   :gateway {:path "hello/hello-lambda" :method [:get]}}
   {'statusCode 200
    'headers {'content-type "text/plain"}
    'body "hello world"
