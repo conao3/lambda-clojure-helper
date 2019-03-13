@@ -1,5 +1,6 @@
 (ns sample-project.core
-  (:require [clojure.data.json :as json]))
+  (:require [clojure.data.json :as json])
+  (:gen-class))
 
 (defn hello-lambda [event]
   {'statusCode 200

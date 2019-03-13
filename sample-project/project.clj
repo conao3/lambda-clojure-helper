@@ -6,4 +6,6 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/data.json "0.2.6"]
                  [com.conao3/lambda-clojure-helper "0.0.2"]]
-  :repl-options {:init-ns sample-project.core})
+  :repl-options {:init-ns sample-project.core}
+  :java-source-paths ["src/java"]
+  :aot :all)
