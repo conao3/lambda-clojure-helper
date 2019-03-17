@@ -1,3 +1,7 @@
+# Deprecated
+The concept of this project is the same as lein-lambda.
+I think it is better to use that project.
+
 # lambda-clojure-helper
 
 FIXME: description
